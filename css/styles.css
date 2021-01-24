@@ -138,13 +138,14 @@ img {
   content: '';
   position: absolute;
   left: 0;
-  bottom: -2px;
+  bottom: -3px;
   display: block;
   width: 100%;
   height: 4px;
   border-radius: 2px;
   background-color: var(--accent-color);
 }
+
 .site-nav a:hover,
 .site-nav a:focus,
 .site-nav a.current {
@@ -156,6 +157,7 @@ img {
 .header-contacts {
   display: flex;
   margin-left: auto;
+  align-items: center;
 }
 .header-contacts svg {
   margin-right: 10px;
@@ -244,18 +246,31 @@ img {
   width: 100%;
   height: 100%;
   background-color: var(--backdrop-bg-color);
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+.backdrop .is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.7);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+
+  transform: translate(-50%, -50%) scale(1);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   min-width: 528px;
   min-height: 581px;
@@ -275,10 +290,9 @@ img {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  fill: var(--dark-color);
-  border: px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--light-color);
 }
 
 /*section*/
