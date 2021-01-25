@@ -164,6 +164,8 @@ img {
 }
 
 .info {
+  display: flex;
+  align-items: center;
   fill: var(--main-text-color);
 }
 
@@ -387,16 +389,23 @@ img {
   margin-left: 30px;
 }
 
-.item .thumb {
+.works .item {
   position: relative;
 }
-.thumb .works-title {
+
+.thumb {
   position: absolute;
+  left: 0;
   bottom: 0;
   width: 100%;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.thumb .works-title {
   margin-top: 0;
   margin-bottom: 0;
-  padding: 27px 82px 27px 83px;
+  padding: 27px;
   font-family: Roboto;
   font-weight: bold;
   font-size: 14px;
@@ -405,7 +414,6 @@ img {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--light-color);
-  background-color: rgba(47, 48, 58, 0.8);
 }
 
 /*team*/
@@ -485,20 +493,23 @@ section .team-member {
   justify-content: space-between;
 }
 
-.social-link {
+.social {
   display: flex;
   width: 44px;
   height: 44px;
+}
+.social-link {
+  display: flex;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
-  transition-property: background-color, fill;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.staff .social-link {
   fill: var(--icon-color);
   background-color: var(--light-color);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .staff .social-link:hover,
@@ -513,10 +524,16 @@ section .clients-list {
   display: flex;
 }
 
-.logotype {
+.clients {
   display: flex;
   width: 170px;
   height: 90px;
+}
+
+.logotype {
+  display: flex;
+  width: 100%;
+  height: 100%;
   border-radius: 4px;
   border: 1px solid var(--icon-color);
   align-items: center;
@@ -667,7 +684,6 @@ section .clients-list {
 .button-passive:hover,
 .button-passive:focus {
   display: inline-block;
-  min-width: 73px;
   padding: 6px 22px;
   border-radius: 4px;
   border: 1px transparent;
@@ -682,8 +698,7 @@ section .clients-list {
 }
 
 .button-passive {
-  color: var(--title-text-color);
-  background-color: var(--button-background-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   transition-property: background-color, color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -718,7 +733,6 @@ section .clients-list {
 .projects a:hover,
 .projects a:focus {
   display: block;
-  border: 1px solid #eeeeee;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -755,7 +769,8 @@ section .clients-list {
   letter-spacing: 0.03em;
 }
 
-.item a:hover .description {
+.item a:hover .description,
+.item a:focus .description {
   transform: translateY(0);
 }
 
